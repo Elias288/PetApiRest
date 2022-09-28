@@ -18,10 +18,14 @@ export class ListUsersComponent implements OnInit{
   ngOnInit(){
     this.api.getUsers().subscribe(element => {
       const data: any = element
-      console.log(data.users);
       
       this.dataSource = new MatTableDataSource(data.users);
     })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

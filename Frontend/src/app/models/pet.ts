@@ -3,5 +3,5 @@ export interface Pet {
     type: string;
     race: string;
     age: number;
-    own: string;
+    owner: string;
 }

@@ -16,10 +16,12 @@ export class ListPetsComponent implements OnInit {
   ngOnInit(): void {
     this.api.getPets().subscribe(element => {
       const data: any = element
-      console.log(data.pets);
-      
       this.dataSource = new MatTableDataSource(data.pets);
     })
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

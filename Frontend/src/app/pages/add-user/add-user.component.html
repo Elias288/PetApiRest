@@ -1,1 +1,27 @@
-<p>add-user works!</p>
+<div class="container">
+    <h1>Add User</h1>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-group">
+            <mat-label>Name</mat-label>
+            <input name="name" matInput formControlName="name" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <mat-label>SurName</mat-label>
+            <input name="surname" matInput formControlName="surname" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <mat-label>City</mat-label>
+            <input name="city" matInput formControlName="city" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <mat-label>Age</mat-label>
+            <input name="age" matInput type="number" placeholder="Ex. 18" min="18" formControlName="age" required>
+        </mat-form-field>
+        <button mat-button color="primary" type="submit">Registrar</button>
+    </form>
+
+</div>

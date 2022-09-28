@@ -21,7 +21,7 @@ exports.findPetsById = (req, res) => {
 }
 
 exports.addPetToUser = (req, res) => {
-    userSchema.findById(req.body.userId, (err, user) =>{
+    userSchema.findById(req.body.owner, (err, user) =>{
         if(err) throw err
 
         const pet = new petSchema({
@@ -29,10 +29,10 @@ exports.addPetToUser = (req, res) => {
             type: req.body.type,
             race: req.body.race,
             age: req.body.age,
-            own: user.id,
+            own: user._id,
         })
 
-        user.pets = [ ...user.pets, pet._id ]
+        user.pets = [ ...user.pets, pet.id ]
         user.save()
         
         pet.save((err, pet) => {
