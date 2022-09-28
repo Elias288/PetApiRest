@@ -6,6 +6,7 @@ import { AyudasComponent } from './pages/ayudas/ayudas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListPetsComponent } from './pages/list-pets/list-pets.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
+import { ViewUserComponent } from './pages/view-user/view-user.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path:'adduser', component: AddUserComponent },
   { path:'addpet', component: AddPetsComponent },
   { path:'pets', component: ListPetsComponent },
-
+  { path:'user/:id', component: ViewUserComponent },
 ];
 
 @NgModule({

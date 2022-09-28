@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-users',
@@ -13,7 +14,9 @@ export class ListUsersComponent implements OnInit{
   displayedColumns: string[] = ['name', 'surName', 'age', 'city', 'nOfPets', 'actions'];
   dataSource: any = [];
 
-  constructor(private api: ApiService){}
+  constructor(
+    private api: ApiService,
+    private router: Router,){}
 
   ngOnInit(){
     this.api.getUsers().subscribe(element => {
@@ -28,4 +31,8 @@ export class ListUsersComponent implements OnInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+
+  verUsuario(userId: string){
+    this.router.navigate(['user', userId])
+  }
 }
