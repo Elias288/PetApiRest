@@ -5,11 +5,8 @@ const petSchema = new Schema({
     name: String,
     type: String,
     race: String,
-    age: String,
-    own: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-})
+    age: Number,
+    own: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
+}, { versionKey: false })
 
-module.exports = mongoose.model('pets', petSchema)
+module.exports = mongoose.model('Pets', petSchema)

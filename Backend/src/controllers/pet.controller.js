@@ -3,14 +3,18 @@ const petSchema = require('../schemas/pet.schema')
 const userSchema = require('../schemas/user.schema')
 
 exports.findPets = (req, res) => {
-    petSchema.find((err, pets) => {
+    petSchema.find()
+    .populate('own')
+    .exec((err, pets) => {
         if(err) throw err
         res.send({ pets: pets })
     })
 }
 
-exports.findPetsByOwnId = (req, res) => {
-    petSchema.find({ 'own' : req.params.id}, (err, pets) => {
+exports.findPetsById = (req, res) => {
+    petSchema.findById(req.params.id)
+    .populate('own')
+    .exec((err, pets) => {
         if(err) throw err
         res.send({ pets: pets})
     })

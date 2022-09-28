@@ -1,9 +1,22 @@
 .app-navbar {
-    background: #fff;
+    background: rgb(10, 44, 94);
+    color: #fff;
     width: 100%;
+    height: 60px;
     box-sizing: border-box;
     padding: 0.5rem 1.5rem;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.navButtons {
+    button {
+        color: #fff;
+    }
 }

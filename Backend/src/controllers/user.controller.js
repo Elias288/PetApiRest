@@ -3,14 +3,17 @@ const userSchema = require('../schemas/user.schema')
 const petSchema = require('../schemas/pet.schema')
 
 exports.listarUsuario = (req, res) => {
-    userSchema.find((err, users) => {
+    userSchema.find()
+    .exec((err, users) => {
         if(err) throw err
         res.send({ users: users })
     })
 }
 
 exports.findUserbyId = (req, res) => {
-    userSchema.findById(req.params.id, (err, user) => {
+    userSchema.findById(req.params.id)
+    .populate('pets')
+    .exec((err, user) => {
         if(err) throw err
         res.send(user)
     })
@@ -21,6 +24,8 @@ exports.createUser = (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         surname: req.body.surname,
+        age: req.body.age,
+        city: req.body.city
     })
     user.save(err => {
         if (err) res.send('Error')

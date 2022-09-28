@@ -4,7 +4,7 @@ const router = express.Router();
 const petController = require('../controllers/pet.controller')
 
 router.get('/', petController.findPets)
-router.get('/:id', petController.findPetsByOwnId)
+router.get('/:id', petController.findPetsById)
 router.post('/', petController.addPetToUser)
  router.delete('/:id', petController.deletePet)
 

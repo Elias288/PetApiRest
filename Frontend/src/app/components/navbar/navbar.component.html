@@ -1,5 +1,20 @@
 <div class="app-navbar">
-    <h1>navbar</h1>
-    <button routerLink="" mat-button color="primary">home</button>
-    <button routerLink="users" mat-button color="primary">users</button>
+    <h1>Pet Api Rest</h1>
+    
+    <div class="navButtons">
+        <button routerLink="" mat-button color="primary">Home</button>
+        <button mat-button color="primary" [matMenuTriggerFor]="users">Users</button>
+        <mat-menu #users="matMenu">
+            <button routerLink="users" mat-menu-item color="primary">List Users</button>
+            <button routerLink="adduser" mat-menu-item color="primary">Add User</button>
+        </mat-menu>
+        
+        <button mat-button color="primary" [matMenuTriggerFor]="pets">Pets</button>
+        <mat-menu #pets="matMenu">
+            <button routerLink="pets" mat-menu-item color="primary">List Pets</button>
+            <button routerLink="addpet" mat-menu-item color="primary">Add Pet</button>
+        </mat-menu>
+    
+        <button routerLink="ayudas" mat-button color="primary">Ayudas</button>
+    </div>
 </div>

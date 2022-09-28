@@ -7,10 +7,17 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { AyudasComponent } from './pages/ayudas/ayudas.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { NavbarComponent } from './components/navbar/navbar.component'
 import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ListPetsComponent } from './pages/list-pets/list-pets.component';
+import { AddPetsComponent } from './pages/add-pets/add-pets.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     AddUserComponent,
     AyudasComponent,
     ListUsersComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    ListPetsComponent,
+    AddPetsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
