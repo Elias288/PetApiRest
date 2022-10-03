@@ -6,7 +6,8 @@ const userSchema = new Schema({
     surname: String,
     age: Number,
     city: String,
-    pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pets' }]
+    pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pets' }],
+    favouritePokemon: String
 }, { versionKey: false })
 
 module.exports = mongoose.model('Users', userSchema)
